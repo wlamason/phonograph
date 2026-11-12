@@ -6,6 +6,8 @@ Explore ten component groups with a continuous exploded view, orbit and zoom, an
 
 The deck is an original interpretation of a classic modern manual turntable. Early phonographs and gramophones are intentionally outside this first volume.
 
+![The original walnut and aluminium turntable, rendered from its Blender source](models/turntables/classic_belt_drive/preview.png)
+
 ## Run locally
 
 Requires Node.js 20.19+ (or 22+) and npm.
