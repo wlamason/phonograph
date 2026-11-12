@@ -150,7 +150,7 @@ export class TurntableScene {
   resetCamera(immediate=false){
     this.focusId=null;this.controls.minDistance=5.4;
     const target=new THREE.Vector3(-.08,1.03+this.targetAmount*(1.15+(this.cover?.27:0)),0);
-    const mobile=window.innerWidth<600;
+    const mobile=window.matchMedia('(max-width: 600px)').matches;
     const offset=new THREE.Vector3(5.15,4.25,7.7).multiplyScalar(mobile?1.08:1);
     const to=target.clone().add(offset.multiplyScalar(1+this.targetAmount*(.18+(this.cover?.12:0))));
     if(immediate||this.reducedMotion){this.camera.position.copy(to);this.controls.target.copy(target);this.controls.update();}

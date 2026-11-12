@@ -10,8 +10,8 @@
     <meta property="og:type" content="website" />
     <title>Phonograph — A little closer to the music</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23242623'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23eeece4' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23eeece4' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23b95838'/%3E%3C/svg%3E" />
-    <script type="module" crossorigin src="./assets/index-C3k3gO2U.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BpsvQ1TR.css">
+    <script type="module" crossorigin src="./assets/index-BRJ84hp9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Pgeq-uFN.css">
   </head>
   <body>
     <a class="skip-link" href="#explore">Skip to the turntable</a>
@@ -36,6 +36,7 @@
         </div>
 
         <div class="stage" id="stage" aria-label="Interactive 3D turntable exhibit">
+          <div class="stage-viewport" id="stage-viewport">
           <div class="stage-heading"><span class="mono">FIG. 01</span><span>A belt-drive turntable<br><span class="muted">Walnut / aluminium / analogue</span></span></div>
           <div class="stage-tools" aria-label="View controls">
             <button id="labels-toggle" class="icon-button active" aria-label="Hide component labels" aria-pressed="true" title="Toggle labels"><span aria-hidden="true">⊙</span></button>
@@ -47,6 +48,7 @@
           <div class="loading" id="loading"><div class="loading-record"><i></i></div><span class="eyebrow" id="loading-text">SETTING THE TABLE</span><span class="loading-rule"><i id="loading-progress"></i></span></div>
           <div id="model-error" class="model-error" hidden><img src="./models/classic-belt-drive.png" loading="lazy" decoding="async" alt="A walnut belt-drive turntable with an aluminium platter and orange record label"><p>The interactive model couldn’t load. You can still explore every part below.</p><button id="retry-model" class="text-button">Try the 3D view again ↗</button></div>
           <div class="stage-baseline"><span class="stage-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-4 4 4 4 M4 8h16 M16 12l4 4-4 4 M20 16H4"/></svg> DRAG TO ROTATE <span>·</span> SCROLL TO ZOOM</span><span class="mono stage-scale">1 : 1 CURIOSITY</span></div>
+          </div>
 
           <aside class="part-card" id="part-card" hidden aria-labelledby="part-title">
             <div class="card-top"><span class="eyebrow" id="part-category"></span><button class="close-button" id="part-close" aria-label="Close component detail">×</button></div>

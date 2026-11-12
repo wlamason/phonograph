@@ -15,7 +15,7 @@ before(async()=>{
   const html=await fs.readFile(new URL('../index.html',import.meta.url),'utf8');
   dom=new JSDOM(html,{url:'https://example.github.io/phonograph/',pretendToBeVisual:true});
   Object.assign(globalThis,{window:dom.window,document:dom.window.document,location:dom.window.location,
-    matchMedia:()=>({matches:true}),innerWidth:1440});
+    matchMedia:query=>({matches:query.includes('prefers-reduced-motion')}),innerWidth:1440});
   class Audio extends dom.window.EventTarget {
     constructor(){super();this.currentTime=0;this.volume=1;this.paused=true;}
     async play(){this.paused=false;} pause(){this.paused=true;}

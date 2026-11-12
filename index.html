@@ -34,6 +34,7 @@
         </div>
 
         <div class="stage" id="stage" aria-label="Interactive 3D turntable exhibit">
+          <div class="stage-viewport" id="stage-viewport">
           <div class="stage-heading"><span class="mono">FIG. 01</span><span>A belt-drive turntable<br><span class="muted">Walnut / aluminium / analogue</span></span></div>
           <div class="stage-tools" aria-label="View controls">
             <button id="labels-toggle" class="icon-button active" aria-label="Hide component labels" aria-pressed="true" title="Toggle labels"><span aria-hidden="true">⊙</span></button>
@@ -45,6 +46,7 @@
           <div class="loading" id="loading"><div class="loading-record"><i></i></div><span class="eyebrow" id="loading-text">SETTING THE TABLE</span><span class="loading-rule"><i id="loading-progress"></i></span></div>
           <div id="model-error" class="model-error" hidden><img src="/models/classic-belt-drive.png" loading="lazy" decoding="async" alt="A walnut belt-drive turntable with an aluminium platter and orange record label"><p>The interactive model couldn’t load. You can still explore every part below.</p><button id="retry-model" class="text-button">Try the 3D view again ↗</button></div>
           <div class="stage-baseline"><span class="stage-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-4 4 4 4 M4 8h16 M16 12l4 4-4 4 M20 16H4"/></svg> DRAG TO ROTATE <span>·</span> SCROLL TO ZOOM</span><span class="mono stage-scale">1 : 1 CURIOSITY</span></div>
+          </div>
 
           <aside class="part-card" id="part-card" hidden aria-labelledby="part-title">
             <div class="card-top"><span class="eyebrow" id="part-category"></span><button class="close-button" id="part-close" aria-label="Close component detail">×</button></div>

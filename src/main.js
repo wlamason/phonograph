@@ -4,6 +4,7 @@ import { parts, tour, signalSteps, tracks } from './content.js';
 const $=id=>document.getElementById(id);
 const baseUrl=import.meta.env.BASE_URL;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobileLayout=matchMedia('(max-width: 600px)');
 let scene=null, selected=null, tourStep=-1, amount=0, modelReady=false;
 let playing=false, trackIndex=0, rpm=100/3;
 const announce=message=>{$('live-status').textContent=message;};
@@ -14,7 +15,7 @@ parts.forEach((part,i)=>{
   button.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span>${part.short}`;
   button.setAttribute('aria-pressed','false');button.addEventListener('click',()=>{
     selectPart(part.id);
-    if(innerWidth<600)$('stage').scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'start'});
+    if(mobileLayout.matches)$('stage').scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'start'});
   });
   $('part-index').append(button);
 });
@@ -98,7 +99,7 @@ function closeTour(restoreFocus=true){
 }
 $('tour-start').addEventListener('click',()=>{
   showTourStep(0);$('tour-next').focus({preventScroll:true});
-  if(innerWidth<600)$('stage').scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'center'});
+  if(mobileLayout.matches)$('stage').scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'start'});
 });
 $('tour-next').addEventListener('click',()=>{
   if(tourStep<tour.length-1)showTourStep(tourStep+1);
@@ -111,7 +112,7 @@ async function startModel(){
   $('model-error').hidden=true;$('loading').classList.remove('ready');
   try{
     const { TurntableScene } = await import('./scene.js');
-    scene=new TurntableScene({canvas:$('turntable'),stage:$('stage'),parts,reducedMotion,
+    scene=new TurntableScene({canvas:$('turntable'),stage:$('stage-viewport'),parts,reducedMotion,
       onSelect:id=>selectPart(id),
       onProgress:value=>{$('loading-progress').style.width=`${Math.min(value*100,95)}%`;},
       onReady:()=>{
