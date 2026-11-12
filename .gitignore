@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+*.blend1
+*.blend2
+__pycache__/
+.vite/
+test-results/

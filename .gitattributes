@@ -1,0 +1,9 @@
+* text=auto
+docs/** linguist-generated=true
+docs/assets/* -whitespace
+*.glb binary
+*.blend binary
+*.mp3 binary
+*.png binary
+*.woff binary
+*.woff2 binary

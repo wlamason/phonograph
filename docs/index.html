@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#eeece4" />
+    <meta name="description" content="Take a turntable apart. Follow a single groove all the way to sound. An interactive, three-dimensional study of the modern record player." />
+    <meta property="og:title" content="Phonograph — A little closer to the music" />
+    <meta property="og:description" content="An interactive study of the modern turntable. Explore every layer, from walnut plinth to diamond stylus." />
+    <meta property="og:type" content="website" />
+    <title>Phonograph — A little closer to the music</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23242623'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23eeece4' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='%23eeece4' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23b95838'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/index-BsloakcK.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CyPLu_04.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#explore">Skip to the turntable</a>
+    <header class="masthead">
+      <a class="wordmark" href="#" aria-label="Phonograph home"><span class="record-mark" aria-hidden="true"><i></i></span>PHONOGRAPH</a>
+      <div class="exhibit-id"><span class="status-dot"></span> AN INTERACTIVE STUDY <span class="divider">/</span> VOL. 001</div>
+      <nav aria-label="Main navigation"><a href="#sound-story">From groove to sound <span aria-hidden="true">↗</span></a><button class="text-button" id="about-open">A note on this study <span aria-hidden="true">↗</span></button></nav>
+    </header>
+
+    <main>
+      <section class="exhibit" id="explore" aria-labelledby="exhibit-title">
+        <div class="exhibit-copy">
+          <p class="eyebrow"><span class="tiny-line"></span> THE MODERN CLASSIC</p>
+          <h1 id="exhibit-title">A little closer<br>to the <em>music.</em></h1>
+          <p class="intro">A thousand small movements. <br>One extraordinary sound.<br>Take a turntable apart and discover<br class="desktop-break"> the beauty in how it works.</p>
+          <button class="tour-start" id="tour-start"><span class="circle-play" aria-hidden="true">↗</span><span>Take the guided tour<small>6 moments · at your own pace</small></span></button>
+
+          <div class="anatomy-index">
+            <div class="index-heading"><span class="eyebrow">EXPLORE THE ANATOMY</span><span class="mono">10 PARTS</span></div>
+            <div id="part-index" class="part-index" aria-label="Turntable components"></div>
+          </div>
+        </div>
+
+        <div class="stage" id="stage" aria-label="Interactive 3D turntable exhibit">
+          <div class="stage-heading"><span class="mono">FIG. 01</span><span>A belt-drive turntable<br><span class="muted">Walnut / aluminium / analogue</span></span></div>
+          <div class="stage-tools" aria-label="View controls">
+            <button id="labels-toggle" class="icon-button active" aria-label="Hide component labels" aria-pressed="true" title="Toggle labels"><span aria-hidden="true">⊙</span></button>
+            <button id="cover-toggle" class="icon-button" aria-label="Show dust cover" aria-pressed="false" title="Show dust cover"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 9 9-5 9 5v9H3Z M3 9h18"/></svg></button>
+            <button id="reset-view" class="icon-button" aria-label="Reset camera view" title="Reset camera"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8 M4 4v6h6"/></svg></button>
+          </div>
+          <canvas id="turntable" aria-label="3D belt-drive turntable. Drag to orbit, pinch or scroll to zoom. Use the component list to explore with a keyboard."></canvas>
+          <div id="hotspots" class="hotspots" aria-label="3D component annotations"></div>
+          <div class="loading" id="loading"><div class="loading-record"><i></i></div><span class="eyebrow" id="loading-text">SETTING THE TABLE</span><span class="loading-rule"><i id="loading-progress"></i></span></div>
+          <div id="model-error" class="model-error" hidden><img src="./models/classic-belt-drive.png" loading="lazy" decoding="async" alt="A walnut belt-drive turntable with an aluminium platter and orange record label"><p>The interactive model couldn’t load. You can still explore every part below.</p><button id="retry-model" class="text-button">Try the 3D view again ↗</button></div>
+          <div class="stage-baseline"><span class="stage-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4-4 4 4 4 M4 8h16 M16 12l4 4-4 4 M20 16H4"/></svg> DRAG TO ROTATE <span>·</span> SCROLL TO ZOOM</span><span class="mono stage-scale">1 : 1 CURIOSITY</span></div>
+
+          <aside class="part-card" id="part-card" hidden aria-labelledby="part-title">
+            <div class="card-top"><span class="eyebrow" id="part-category"></span><button class="close-button" id="part-close" aria-label="Close component detail">×</button></div>
+            <h2 id="part-title"></h2><p id="part-description"></p>
+            <div class="part-fact"><span id="part-fact-label"></span><strong id="part-fact"></strong></div>
+            <button class="inspect-button" id="part-inspect">Look a little closer <span aria-hidden="true">↗</span></button>
+            <div class="part-nav"><button id="part-prev" class="text-button" aria-label="Previous component">← Previous</button><span id="part-counter" class="mono"></span><button id="part-next" class="text-button" aria-label="Next component">Next →</button></div>
+          </aside>
+
+          <aside class="tour-card" id="tour-card" hidden aria-labelledby="tour-title">
+            <div class="card-top"><span class="eyebrow" id="tour-counter"></span><button class="close-button" id="tour-close" aria-label="End guided tour">×</button></div>
+            <div class="tour-progress" id="tour-progress"></div><h2 id="tour-title"></h2><p id="tour-description"></p>
+            <div class="tour-nav"><button class="text-button" id="tour-prev">← Back</button><button class="small-primary" id="tour-next">Next moment →</button></div>
+          </aside>
+        </div>
+
+        <div class="explosion-bar">
+          <div class="explosion-caption"><span class="eyebrow">A DIFFERENT PERSPECTIVE</span><span>Every piece has a part to play.</span></div>
+          <div class="slider-control"><div class="slider-labels"><label for="explode-slider">Assembled</label><output id="explode-value" for="explode-slider">0%</output><span>Exploded</span></div><input type="range" id="explode-slider" min="0" max="100" value="0" step="1" aria-label="Explode the turntable" aria-describedby="explode-help"><span id="explode-help" class="sr-only">Use arrow keys for small changes or Home and End to assemble and fully explode.</span><div class="slider-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <button class="primary-button" id="explode-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 5-8 5-8-5Z M4 12l8 5 8-5 M4 16l8 5 8-5"/></svg><span>Explode the turntable</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
+      <section class="listening-bar" aria-label="The listening room">
+        <div class="listening-label"><span class="sound-bars" id="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><div><span class="eyebrow">THE LISTENING ROOM</span><span class="listening-note">A little atmosphere, if you like.</span></div></div>
+        <div class="track-controls"><button id="audio-play" class="audio-play" aria-label="Play Soft focus"><span aria-hidden="true">▶</span></button><div class="track-info"><span id="track-title">Soft focus</span><span id="track-genre">Warm keys · a late-night jazz miniature</span></div><button id="track-next" class="icon-button" aria-label="Choose next composition" title="Next composition"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 5 10 7L6 19Z M18 5v14"/></svg></button><span class="track-time mono" id="track-time">00:00</span></div>
+        <div class="listening-options"><div class="speed-switch" role="group" aria-label="Turntable speed"><button class="active" id="speed-33" aria-pressed="true">33⅓<span>RPM</span></button><button id="speed-45" aria-pressed="false">45<span>RPM</span></button></div><label class="volume-control"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 4-6 5H2v6h3l6 5Z M15 8a6 6 0 0 1 0 8 M18 5a10 10 0 0 1 0 14"/></svg><input id="volume" type="range" min="0" max="100" value="35" aria-label="Music volume"></label></div>
+        <span id="audio-status" class="sr-only" role="status"></span>
+      </section>
+
+      <section class="sound-story" id="sound-story" aria-labelledby="story-title">
+        <div class="story-heading"><p class="eyebrow"><span class="tiny-line"></span> THE BEAUTIFUL PART IS WHAT YOU CAN’T SEE</p><h2 id="story-title">One groove.<br><em>An entire orchestra.</em></h2><p>A record doesn’t store sound as data. It holds a physical trace of a performance. Follow that tiny movement as it becomes something you can hear.</p></div>
+        <div class="signal-explainer">
+          <div class="signal-tabs" role="tablist" aria-label="The journey of sound"><button id="signal-tab-0" role="tab" aria-selected="true" aria-controls="signal-panel" class="active" tabindex="0"><span>01</span>The groove</button><button id="signal-tab-1" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1"><span>02</span>The stylus</button><button id="signal-tab-2" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1"><span>03</span>The signal</button><button id="signal-tab-3" role="tab" aria-selected="false" aria-controls="signal-panel" tabindex="-1"><span>04</span>The sound</button></div>
+          <div id="signal-panel" role="tabpanel" aria-labelledby="signal-tab-0" tabindex="0"><div class="signal-visual" id="signal-visual"><svg id="signal-svg" viewBox="0 0 700 220" aria-hidden="true"></svg><span class="mono visual-caption" id="visual-caption"></span></div><div class="signal-text"><span class="eyebrow" id="signal-kicker"></span><h3 id="signal-title"></h3><p id="signal-description"></p><span class="signal-note" id="signal-note"></span></div></div>
+        </div>
+      </section>
+
+      <footer><a class="wordmark footer-wordmark" href="#"><span class="record-mark" aria-hidden="true"><i></i></span>PHONOGRAPH</a><p>An ongoing study of the things that move us.</p><span class="mono">001 — THE MODERN TURNTABLE</span><a href="https://github.com/wlamason/phonograph" target="_blank" rel="noopener noreferrer">Made to be explored. And rebuilt. ↗</a></footer>
+    </main>
+
+    <dialog id="about-dialog" aria-labelledby="about-title"><button class="close-button dialog-close" id="about-close" aria-label="Close about this study">×</button><p class="eyebrow">A NOTE ON THIS STUDY</p><h2 id="about-title">A small celebration<br>of <em>analogue things.</em></h2><p>Phonograph is an interactive collection about the machines that bring recorded music to life. This first volume looks inside a classic manual, belt-drive turntable.</p><p>The walnut deck is an original educational model, inspired by the enduring principles of modern hi-fi design. It is not a replica of a particular brand. Parts are separated and small details enlarged for clarity; the stylus and motor internals are simplified.</p><p>The three listening-room miniatures—<em>Soft focus</em>, <em>After the rain</em>, and <em>Still, slowly</em>—are original synthesized compositions, bundled locally and dedicated to the public domain (CC0). They are atmosphere, rather than recordings of this virtual cartridge.</p><p class="about-future">In time, other ways of playing music will join the collection. For now, just this one, seen a little closer.</p><div class="about-links"><a href="https://github.com/wlamason/phonograph" target="_blank" rel="noopener noreferrer">Explore the source ↗</a><a href="https://www.rega.co.uk/products/planar-3" target="_blank" rel="noopener noreferrer">Read about belt-drive design ↗</a></div></dialog>
+    <div class="sr-only" id="live-status" role="status" aria-live="polite"></div>
+  </body>
+</html>
